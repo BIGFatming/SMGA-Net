@@ -120,21 +120,6 @@ def train(model, batch_size, fold_epoch, initial_lr, train_data, val_data, num_f
     epoch_class_loss = []
     epoch_ssl_loss = []
 
-    # for i in range(39):
-    #     model.load_state_dict(
-    #         torch.load('./Noise_face+part_vgg16bn_ATTN64_GAT256_8_256_LSTM_ssl_75_25_weights/epoch' + str(i) + '.pt'
-    #                    , map_location=device), strict=True)
-    #     TP, FN, FP, TN, accuracy, f1_score = evaluate(model, val_loader)
-    #     score = (accuracy + f1_score) / 2
-    #     txt_file.writelines(
-    #         'Fold:' + str(num_fold) +
-    #         ' Val TP:' + str(TP) + ' FN:' + str(FN) + ' FP:' + str(FP) + ' TN:' + str(TN) +
-    #         ' Val Accuracy:' + str(round(accuracy, 4)) +
-    #         ' Val F1 score:' + str(round(f1_score, 4)) +
-    #         ' score:' + str(round(score, 4)) + '\n'
-    #     )
-    #     txt_file.flush()
-
     for epoch in range(begin_epoch, fold_epoch):
         epoch_loss.clear()
         pbar = tqdm(train_loader)
